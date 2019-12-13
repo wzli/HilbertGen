@@ -1,6 +1,6 @@
 # Sequential Hilbert Curve Generator
 
-This is a small and highly efficient algorithm written in portable C to generate [Hilbert Curves](https://en.wikipedia.org/wiki/Hilbert_curve). It was originally used for adaptive local thresholding within a real-time embedded vision application. As such, performance and resource constrains are the primary considerations.
+This is a small and highly efficient algorithm written in portable C to generate [Hilbert Curves](https://en.wikipedia.org/wiki/Hilbert_curve). It was originally used for adaptive local thresholding in a real-time embedded vision application. As such, performance and resource constrains are the primary considerations.
 1) This is an iterative algorithm, as opposed recursive methods that are unsuitable for systems with tightly bounded memory.
 2) The curve extends continuously to higher orders. Blocks are added sequentially without discard or modification of past sequence.
 3) Directional bit representation allow 16 simultaneous rotate/flip/transpose operations using a single 32-bit XOR instruction.
