@@ -10,6 +10,23 @@ This is a small and highly efficient algorithm written in portable C to generate
 *Note*:
 The intended use case is for traversing the entire curve as fast as possible. Eg. Scanning through every pixel in an image. There are other more efficient algorithms for translating between sparse coordinates.  
 
+## Usage
+Basic example
+```C
+// create a buffer and declare the order
+uint8_t curve[1024];
+uint8_t curve_order = 6;
+
+// generate the curve
+hilbert_curve_generate(curve, curve_order);
+
+// follow the curve
+HILBERT_CURVE_FOR_EACH_XY(curve, curve_order) {
+// do something with x and y eg
+    printf("x: %d, y: %d\n", x, y);
+}
+
+```
 
 ## Directional Bit Encoding
 Although functions to convert to XY coordinates are provided, understanding the encoding format is very simple:
@@ -43,5 +60,21 @@ With (x = 0, y = 0) starting from bottom-left, the first two curves are encoded 
 
 
 ## Demo App
+### Build
+```
+git clone https://github.com/wzli/HilbertGen.git
+cd HilbertGen
+make
+```
+### Run
+```
+./build/hilbert_gen {optional param: kth_order}
 
-Todo . . .
+>>> output 
+first parameter argument specifies order of the curve to generate
+selected hilbert curve of order 10, generating ...
+allocated size 262144B buffer for the curve
+allocated size 524288B buffer for the image
+image successfully saved to hilbert.pbm
+
+```
