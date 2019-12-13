@@ -22,8 +22,8 @@ Although functions to convert to XY coordinates are provided, understanding the 
 v = 0b11
 
 // The following holds true for each direction:
-// reflection across y = x maps to inverting first bit
-// reflection across y =-x maps to inverting both bits
+// reflection across y = x maps to inverting first bit (transpose)
+// reflection across y =-x maps to inverting both bits (anti-transpose)
 
 ```
 ### For example:
