@@ -59,5 +59,6 @@ int main(int argc, char* argv[]) {
 
     free(curve);
     free(bimg.data);
+    printf("image successfully saved to hilbert.pbm\n");
     return 0;
 }
