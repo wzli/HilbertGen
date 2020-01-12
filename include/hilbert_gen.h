@@ -9,9 +9,10 @@ typedef enum {
     HILBERT_CURVE_DOWN = 3,   // 0b11
 } HilbertCurveDirection;
 
-#define HILBERT_CURVE_FOR_EACH_XY(curve, order)                                               \
-    for (int32_t x = 0, y = 0, i = 0, curve_len = hilbert_curve_length(order); i < curve_len; \
-            hilbert_curve_increment_xy(hilbert_curve_query(curve, i++), &x, &y))
+#define HILBERT_CURVE_FOR_EACH_XY(curve, order)                                            \
+    for (int32_t x = 0, y = 0, hilbert_index = 0, curve_len = hilbert_curve_length(order); \
+            hilbert_index < curve_len;                                                     \
+            hilbert_curve_increment_xy(hilbert_curve_query(curve, hilbert_index++), &x, &y))
 
 static inline HilbertCurveDirection hilbert_curve_query(const uint8_t* curve, uint32_t index) {
     return (curve[index / 4] >> (2 * (index & 3))) & 3;
