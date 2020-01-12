@@ -11,7 +11,7 @@ typedef struct {
 
 static inline void bimg_set_pixel(BinaryImage img, int32_t row, int32_t col) {
     uint32_t k = row * img.n_cols + col;
-    img.data[k >> 3] |= 1 << (k & 0x7);
+    img.data[k >> 3] |= 1 << (7 - (k & 7));
 }
 
 int main(int argc, char* argv[]) {
