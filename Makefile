@@ -12,7 +12,7 @@ $(BUILD_DIR)/hilbert_gen: $(OBJS)
 INC_DIRS := $(shell find -L $(INC_DIR) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 
-COMMONFLAGS =  -Wall -Wextra -Ofast -DNDEBUG #-Og -g -DDEBUG
+COMMONFLAGS =  -Wall -Wextra -Wpedantic -Ofast -DNDEBUG #-Og -g -DDEBUG
 
 CFLAGS ?= -std=c99 -Werror=double-promotion $(COMMONFLAGS)
 CC ?= gcc

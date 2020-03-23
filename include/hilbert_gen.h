@@ -16,7 +16,7 @@ typedef enum {
 
 static inline HilbertCurveDirection hilbert_curve_query(const uint8_t* curve, uint32_t index) {
     return (curve[index / 4] >> (2 * (index & 3))) & 3;
-};
+}
 
 static inline uint32_t hilbert_curve_length(uint8_t order) {
     return 1 << (2 * order);
